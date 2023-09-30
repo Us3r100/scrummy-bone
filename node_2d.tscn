@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://plp3lcm8risf"]
+
+[ext_resource type="Texture2D" uid="uid://0ck43rsdmgrf" path="res://Assets/Placeholder/PlaceholderCapsule.png" id="1_o4jqc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlaceholderCapsule" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(169, 157)
+texture = ExtResource("1_o4jqc")
