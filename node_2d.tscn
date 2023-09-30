@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://plp3lcm8risf"]
 
-[ext_resource type="Texture2D" uid="uid://0ck43rsdmgrf" path="res://Assets/Placeholder/PlaceholderCapsule.png" id="1_o4jqc"]
+[ext_resource type="PackedScene" uid="uid://cyui0ia16gsxv" path="res://Prototypes/placeholder_capsule_prototype.tscn" id="1_me36v"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="PlaceholderCapsule" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(169, 157)
-texture = ExtResource("1_o4jqc")
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PlaceholderCapsule" parent="." instance=ExtResource("1_me36v")]
+position = Vector2(-7, -8)

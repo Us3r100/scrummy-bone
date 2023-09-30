@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://cyui0ia16gsxv"]
+
+[ext_resource type="Texture2D" uid="uid://0ck43rsdmgrf" path="res://Assets/Placeholder/PlaceholderCapsule.png" id="1_mwaqi"]
+[ext_resource type="Script" path="res://Assets/Scripts/Capsule.gd" id="2_3wn76"]
+[ext_resource type="Animation" uid="uid://c8wsxgn0sba8d" path="res://Assets/Animations/Wiggle.res" id="3_g017i"]
+
+[sub_resource type="Animation" id="Animation_5j5jp"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_llm2s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w71p0"]
+_data = {
+"Idle": SubResource("Animation_5j5jp"),
+"RESET": SubResource("Animation_llm2s"),
+"Wiggle": ExtResource("3_g017i")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lxtth"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v6d1u"]
+animation = &"Wiggle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l7hsb"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i4rni"]
+advance_mode = 2
+advance_condition = &"do_wiggle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qj8yb"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qh4ii"]
+states/End/position = Vector2(898, 85)
+states/Idle/node = SubResource("AnimationNodeAnimation_lxtth")
+states/Idle/position = Vector2(347, 90)
+states/Start/position = Vector2(181, 90)
+states/Wiggle/node = SubResource("AnimationNodeAnimation_v6d1u")
+states/Wiggle/position = Vector2(531, 90)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_l7hsb"), "Idle", "Wiggle", SubResource("AnimationNodeStateMachineTransition_i4rni"), "Wiggle", "Idle", SubResource("AnimationNodeStateMachineTransition_qj8yb")]
+graph_offset = Vector2(8, 30)
+
+[node name="PlaceholderCapsule" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_mwaqi")
+script = ExtResource("2_3wn76")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_w71p0")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_qh4ii")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/do_wiggle = false
