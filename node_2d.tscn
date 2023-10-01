@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://plp3lcm8risf"]
+[gd_scene load_steps=3 format=3 uid="uid://plp3lcm8risf"]
 
 [ext_resource type="PackedScene" uid="uid://cyui0ia16gsxv" path="res://Prototypes/placeholder_capsule_prototype.tscn" id="1_me36v"]
+[ext_resource type="Script" path="res://Assets/Scripts/ToyRepository.gd" id="2_k31hm"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -8,3 +9,7 @@
 
 [node name="PlaceholderCapsule" parent="." instance=ExtResource("1_me36v")]
 position = Vector2(-7, -8)
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("2_k31hm")
+print_on_load = true
