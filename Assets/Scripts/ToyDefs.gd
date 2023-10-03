@@ -1,6 +1,7 @@
 class_name ToyDefs
 
 enum Rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
+static var rarity_weights: Array[float] = [45, 30, 19, 5, 1]
 
 class Toy:
 	var toy_name:String

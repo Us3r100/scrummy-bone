@@ -1,15 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://plp3lcm8risf"]
+[gd_scene load_steps=4 format=3 uid="uid://plp3lcm8risf"]
 
 [ext_resource type="PackedScene" uid="uid://cyui0ia16gsxv" path="res://Prototypes/placeholder_capsule_prototype.tscn" id="1_me36v"]
 [ext_resource type="Script" path="res://Assets/Scripts/ToyRepository.gd" id="2_k31hm"]
+[ext_resource type="Script" path="res://Assets/Scripts/MachineRng.gd" id="3_t4ibg"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="PlaceholderCapsule" parent="." instance=ExtResource("1_me36v")]
+[node name="PlaceholderCapsule" parent="." node_paths=PackedStringArray("machine_rng") instance=ExtResource("1_me36v")]
 position = Vector2(-7, -8)
+machine_rng = NodePath("../MachineRng")
 
-[node name="Node" type="Node" parent="."]
+[node name="ToyRepository" type="Node" parent="."]
 script = ExtResource("2_k31hm")
 print_on_load = true
+
+[node name="MachineRng" type="Node" parent="." node_paths=PackedStringArray("toy_repo")]
+script = ExtResource("3_t4ibg")
+toy_repo = NodePath("../ToyRepository")
