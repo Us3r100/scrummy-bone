@@ -3,6 +3,7 @@ extends Node
 
 @export var print_on_load = false
 @export var json_path = "res://Data/Toys.json"
+@export var DEBUG_save_path = "res://Data/DEBUG_Toys.json"
 
 #var toys:Array[ToyDefs.Toy]
 var themes:Array[ToyDefs.ToyTheme]
@@ -13,22 +14,30 @@ func load_from_json(json_path:String):
 	var error = json.parse(json_text)
 	if error == OK:
 		var data_received = json.data
-		assert(typeof(data_received) == TYPE_DICTIONARY, "Unexpected json format, must be type dict")
-		var toydict = data_received as Dictionary
+		assert(typeof(data_received) == TYPE_ARRAY, "Unexpected json format, must be type dict")
+		var toydict = data_received as Array
 		# Create a theme object for each theme defined in the Json
-		for theme in toydict["themes"]:
+		for theme in toydict:
 			var toys_in_theme:Array[ToyDefs.Toy]
 			# Load all toys defined in the theme
 			for toy in theme["toys"]:
 				var toy_obj = ToyDefs.Toy.new(toy["toyName"], toy["toyImg"], toy["rarity"], theme["themeName"])
 				toys_in_theme.append(toy_obj)
 				
-			var theme_obj = ToyDefs.ToyTheme.new(theme["themeName"], toys_in_theme)
+			var theme_obj = ToyDefs.ToyTheme.new(theme["themeName"], theme["machineImg"], toys_in_theme)
 			themes.append(theme_obj)
 #			toys.append_array(toys_in_theme)
 	else:
 		print("JSON Parse Error ", json.get_error_message(), " in ", json_text, " at line ", json.get_error_line())
 		assert(false)
+	
+func save_to_json(json_path:String):
+	var json_string := JSON.stringify(themes)
+	var save_file := FileAccess.open(json_path, FileAccess.WRITE)
+	var theme_dicts: Array[Dictionary]
+	for theme in themes:
+		theme_dicts.append(theme.asDict())
+	save_file.store_string(JSON.stringify(theme_dicts, "\t"))
 	
 # Adds a theme to the theme array if a them with the same name does not already exist
 # returns bool: whether or not the theme was added
