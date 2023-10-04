@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cyui0ia16gsxv" path="res://Prototypes/placeholder_capsule_prototype.tscn" id="1_me36v"]
 [ext_resource type="Script" path="res://Assets/Scripts/ToyRepository.gd" id="2_k31hm"]
 [ext_resource type="Script" path="res://Assets/Scripts/MachineRng.gd" id="3_t4ibg"]
-[ext_resource type="Script" path="res://Machine.gd" id="4_6tk6k"]
+[ext_resource type="Script" path="res://Assets/Scripts/Machine.gd" id="4_7xr7r"]
 [ext_resource type="Texture2D" uid="uid://cda61wrv4hryh" path="res://Assets/Placeholder/MachinePlaceholder.png" id="4_ls5ut"]
 [ext_resource type="Texture2D" uid="uid://wpu7xx6rwgjl" path="res://Assets/Placeholder/PrizeChute.png" id="5_1bkxm"]
 [ext_resource type="Texture2D" uid="uid://c45bvuc7kwm85" path="res://Assets/Placeholder/PlaceholderCapsuleBottom.png" id="6_nhcxa"]
@@ -234,7 +234,7 @@ script = ExtResource("3_t4ibg")
 toy_repo = NodePath("../ToyRepository")
 
 [node name="Machine1" type="Node2D" parent="."]
-script = ExtResource("4_6tk6k")
+script = ExtResource("4_7xr7r")
 
 [node name="Sprite" type="Sprite2D" parent="Machine1"]
 scale = Vector2(0.335, 0.335)
