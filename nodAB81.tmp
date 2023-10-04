@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://plp3lcm8risf"]
+[gd_scene load_steps=13 format=3 uid="uid://plp3lcm8risf"]
 
 [ext_resource type="PackedScene" uid="uid://cyui0ia16gsxv" path="res://Prototypes/placeholder_capsule_prototype.tscn" id="1_me36v"]
 [ext_resource type="Script" path="res://Assets/Scripts/ToyRepository.gd" id="2_k31hm"]
@@ -9,12 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://c45bvuc7kwm85" path="res://Assets/Placeholder/PlaceholderCapsuleBottom.png" id="6_nhcxa"]
 [ext_resource type="Texture2D" uid="uid://0oinfptjk3b" path="res://Assets/Placeholder/PlaceholderCapsuleTop.png" id="7_0eomr"]
 [ext_resource type="Texture2D" uid="uid://bu61lyk34tvky" path="res://Assets/Toys/astarion.png" id="8_uxgio"]
-[ext_resource type="Material" uid="uid://c6ml7232bltwv" path="res://Assets/Placeholder/placeholder_flare_particles.tres" id="10_3qfuo"]
-[ext_resource type="Texture2D" uid="uid://d0v8v7fq7aowt" path="res://Assets/Placeholder/PlaceholderParticleCommon.png" id="11_62y6e"]
 
 [sub_resource type="Animation" id="Animation_owj0a"]
 resource_name = "PullCapsule"
-length = 4.6
+length = 6.0
 step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -457,15 +455,6 @@ z_index = 1
 position = Vector2(0, -150)
 scale = Vector2(4, 4)
 texture = ExtResource("8_uxgio")
-
-[node name="FlareParticles" type="GPUParticles2D" parent="Machine1/Sprite/ToySprite"]
-z_index = -1
-amount = 100
-process_material = ExtResource("10_3qfuo")
-texture = ExtResource("11_62y6e")
-lifetime = 2.0
-preprocess = 3.0
-fixed_fps = 60
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Machine1"]
 libraries = {
