@@ -4,5 +4,11 @@ extends Node2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("Click"):
+	pass
+
+
+func _on_button_pressed():
+	if animation_player:
 		animation_player.play("PullCapsule")
+	else:
+		print("Aniplayer not found")
