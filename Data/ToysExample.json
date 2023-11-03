@@ -1,0 +1,34 @@
+[
+	{
+		"themeName": "First Theme",
+		"machineImg": "gacha_filename.png",
+		"toys": [
+			{
+				"toyName": "Breadbug3",
+				"rarity": 4,
+				"toyImg": "breadbug3.png"
+			},
+			{
+				"toyName": "Red Spaceman",
+				"rarity": 0,
+				"toyImg": "red_amogus.png"
+			},
+			{
+				"toyName": "Ass boy",
+				"rarity": 2,
+				"toyImg": "astarion.png"
+			}
+		]
+	},
+	{
+		"themeName": "Second Theme",
+		"machineImg": "gacha_filename2.png",
+		"toys": [
+			{
+				"toyName": "Axolotl",
+				"rarity": 4,
+				"toyImg": "axolotl.png"
+			}
+		]
+	}
+]

@@ -2,6 +2,7 @@ class_name ToyDefs
 
 enum Rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
 static var rarity_weights: Array[float] = [45, 30, 19, 5, 1]
+static var toy_sprites_path = "res://Assets/Toys/"
 
 class Toy:
 	var toy_name:String
