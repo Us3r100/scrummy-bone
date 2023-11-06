@@ -5,13 +5,23 @@
 		"toys": [
 			{
 				"toyName": "Torble Bread",
-				"rarity": 0,
+				"rarity": 2,
 				"toyImg": "turtlebread.png"
 			},
 			{
 				"toyName": "Caterpillar",
-				"rarity": 0,
+				"rarity": 3,
 				"toyImg": "imomushi.png"
+			},
+			{
+				"toyName": "Breadcrumbs",
+				"rarity": 0,
+				"toyImg": "breadcrum.png"
+			},
+			{
+				"toyName": "Toast",
+				"rarity": 1,
+				"toyImg": "beurre.png"
 			}
 		]
 	}
